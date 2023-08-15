@@ -1,0 +1,19 @@
+CREATE TABLE makeup (ID integer Primary Key, name Text, type text, price integer, qty integer);
+
+INSERT INTO makeup VALUES (1,"eyeliner", "eyes", 2,2);
+INSERT INTO makeup VALUES (2, "eyebrow pencil","eyes",1,1);
+INSERT INTO makeup VALUES (3,"foundation","face",3,1);
+INSERT INTO makeup VALUES (4, "blush","face",4,3);
+INSERT INTO makeup VALUES (5,"eyeshadow","face",10,5);
+INSERT INTO makeup VALUES (6,"lipgloss","lips",6,3);
+
+--Display the database ordered by price
+SELECT * FROM makeup
+ORDER BY price;
+
+--What is the total quantity of items?
+SELECT SUM(qty) FROM makeup;
+
+--What is the avg price of items?
+SELECT AVG(price) "Average Price" FROM makeup;
+
