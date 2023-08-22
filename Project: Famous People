@@ -1,0 +1,75 @@
+/* Create table about the people and what they do here */
+CREATE TABLE BTS (id INTEGER PRIMARY KEY AUTOINCREMENT, name text, songs integer);
+INSERT INTO BTS (name, songs) VALUES ("RM",23);
+INSERT INTO BTS (name, songs) VALUES ("Jin", 6);
+INSERT INTO BTS (name, songs) VALUES ("Yoongi",15);
+INSERT INTO BTS (name, songs) VALUES ("JHope",16);
+INSERT INTO BTS (name, songs) VALUES ("Jimin",3);
+INSERT INTO BTS (name, songs) VALUES ("V",5);
+INSERT INTO BTS (name, songs) VALUES ("Jungkook",6);
+
+CREATE TABLE Facts (id INTEGER PRIMARY KEY AUTOINCREMENT, member_id integer, fact text);
+INSERT INTO Facts (member_id, fact) VALUES (1, "leader");
+INSERT INTO Facts (member_id, fact) VALUES (1, "rapper");
+INSERT INTO Facts (member_id, fact) VALUES (1, "Koya");
+INSERT INTO Facts (member_id, fact) VALUES (2, "oldest");
+INSERT INTO Facts (member_id, fact) VALUES (2, "vocalist");
+INSERT INTO Facts (member_id, fact) VALUES (2, "RJ");
+INSERT INTO Facts (member_id, fact) VALUES (3, "Shooky");
+INSERT INTO Facts (member_id, fact) VALUES (3, "rapper");
+INSERT INTO Facts (member_id, fact) VALUES (4, "rapper");
+INSERT INTO Facts (member_id, fact) VALUES (4, "Mang");
+INSERT INTO Facts (member_id, fact) VALUES (5, "Chimmy");
+INSERT INTO Facts (member_id, fact) VALUES (5, "dancer");
+INSERT INTO Facts (member_id, fact) VALUES (5, "vocalist");
+INSERT INTO Facts (member_id, fact) VALUES (6, "vocalist");
+INSERT INTO Facts (member_id, fact) VALUES (6, "TaTa");
+INSERT INTO Facts (member_id, fact) VALUES (7, "Kooky");
+INSERT INTO Facts (member_id, fact) VALUES (7, "youngest");
+INSERT INTO Facts (member_id, fact) VALUES (7, "vocalist");
+
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "RM";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "Jin";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "Yoongi";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "JHope";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "Jimin";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "V";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE b.name= "Jungkook";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE f.fact= "rapper";
+
+SELECT b.name,f.fact
+FROM BTS b JOIN Facts f
+    ON b.id=f.member_id
+WHERE f.fact= "vocalist";
