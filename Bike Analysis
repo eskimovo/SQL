@@ -73,6 +73,7 @@ INSERT INTO BIT_DB.CityBikeLanes values(60,2002, 2021,"Mouse",4.5,4.3,"no");
 SELECT * 
 FROM CityBikeLanes LIMIT 10
 
+--Query #2
 /*list all bike lanes that have an average safety rating of 4.0 or higher. 
 What is avg safety rating for each of those bike lanes and a label that says "Safe Lane" - Use CTE*/
 
@@ -85,3 +86,14 @@ SELECT street, rating, 'safe lane' as 'label'
 FROM Safe_Lane
 WHERE Rating >= 4;
 
+
+-- Query #3
+/* List all bike lanes, both safety ratings for each lane, avg safety rating for each lane, 
+and label with recommendation as "remove", "leave as is", or "improvements needed"*/
+SELECT street, safetyrating, AVG(safetyrating) OVER (PARTITION BY street) as "Average_safety_rating",
+    CASE
+        WHEN AVG(safetyrating) OVER (PARTITION BY street) >= 4 THEN "Leave As-Is"
+        WHEN AVG(safetyrating) OVER (PARTITION BY street) < 2.5 THEN "Remove"
+        ELSE "Improvements Needed"
+        END AS "Recommendation"
+FROM CityBikeLanes;
